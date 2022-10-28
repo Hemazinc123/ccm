@@ -1,0 +1,85 @@
+#%RAML 1.0 Library
+
+uses:
+  responseLibrary: response-library.raml
+
+types: 
+  inventoryRecieveDataError:
+    type: [responseLibrary.error, responseLibrary.commonKeys ] 
+    properties:
+      errors:
+        type: [array]
+        required: false
+        items:
+          properties:
+            recordNumber:
+              type: number
+              required: true
+            errorCode:
+              type: number
+              required: true
+            errorMessage:
+              type: string
+              required: true
+            data:
+              type: [responseLibrary.error, responseLibrary.errorInventoryReceive]
+
+  inventoryTransferInDataError:
+    type: [responseLibrary.error, responseLibrary.commonKeys ] 
+    properties:
+      errors:
+        type: [array]
+        required: false
+        items:
+          properties:
+            recordNumber:
+              type: number
+              required: true
+            errorCode:
+              type: number
+              required: true
+            errorMessage:
+              type: string
+              required: true
+            data:
+              type: [responseLibrary.error]
+
+  inventoryCountDataError:
+    type: [responseLibrary.error, responseLibrary.commonKeys] 
+    properties:
+      errors:
+        type: [array]
+        required: false
+        items:
+          properties:
+            recordNumber:
+              type: number
+              required: true
+            errorCode:
+              type: number
+              required: true
+            errorMessage:
+              type: string
+              required: true
+            data:
+              type: [responseLibrary.errorInventoryCountData] 
+
+  inventoryTransferOutDataError:
+    type: [responseLibrary.error,responseLibrary.commonKeys] 
+    properties:
+      errors:
+        type: [array]
+        required: false
+        items:
+          properties:
+            recordNumber:
+              type: number
+              required: true
+            errorCode:
+              type: number
+              required: true
+            errorMessage:
+              type: string
+              required: true
+            data:
+              type: [responseLibrary.errorInventoryTransferOut] 

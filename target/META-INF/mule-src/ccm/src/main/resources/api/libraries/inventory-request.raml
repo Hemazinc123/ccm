@@ -1,0 +1,565 @@
+#%RAML 1.0 Library
+uses: 
+  inventoryRequestCommonBody: request-body-library.raml
+
+types:
+  inventoryReceiveRequestBody: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            receiveId: 
+              type: string
+            receiveStatus?: 
+              type: string
+            allowReopen?: 
+              type: boolean
+            orderDate?: 
+              type: string
+            receiveType:
+              type: string
+            receiveSource?:
+              type: string
+            expectedDate?:
+              type: string
+            receiverItems:
+              type: array
+              items:
+                properties: 
+                  lineNumber: 
+                    type: number
+                  sku: 
+                    type: string
+                  price?:
+                    type: number
+                  vendorItem?:
+                    type: string
+                  description?:
+                    type: string
+                  qtyOrdered:
+                    type: number
+                  qtyShipped:
+                    type: number
+                  casePackId?:
+                    type: string
+                  casePackQty?:
+                    type: number
+                  casePackDescription?:
+                    type: string
+  inventoryTransferInRequestBody: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            transferId: 
+              type: string
+            status: 
+              type: string
+            sendingLocation: 
+              type: string
+            createdBy?: 
+              type: string
+            insured?: 
+              type: boolean
+            shippingMethod?: 
+              type: string
+            notes?:
+              type: string
+            creationDate?:
+              type: string
+            shipDate?:
+              type: string
+            inventoryTransferInItems:
+              type: array
+              items:
+                properties: 
+                  lineNumber: 
+                    type: number
+                  sku: 
+                    type: string
+                  description?:
+                    type: string
+                  qtyShipped:
+                    type: number
+                  qtyReceived?:
+                    type: number
+                  price?:
+                    type: number
+                  mfgCode?:
+                    type: string
+                  lineCreatedBy?:
+                    type: string
+  inventoryTransferOutRequestBody: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            transferId: 
+              type: string
+            receivingLocation: 
+              type: string
+            createdBy?: 
+              type: string
+            shippingMethod?: 
+              type: string
+            notes?: 
+              type: string
+            creationDate?: 
+              type: string
+            status: 
+              type: string
+            transferOutItems:
+              type: array
+              items:
+                properties: 
+                  lineNumber: 
+                    type: number
+                  sku: 
+                    type: string
+                  description?:
+                    type: string
+                  qtyShipped:
+                    type: number
+                  qtyReceived?:
+                    type: number
+                  price?:
+                    type: number
+                  lineCreatedBy?:
+                    type: string
+  inventoryCountRequestBody: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            countId: 
+              type: string
+            fixtureId?: 
+              type: string
+            status?: 
+              type: string
+            initiatedAtCorporate: 
+              type: boolean
+            inventoryCountItems:
+              type: array
+              items:
+                properties: 
+                  lineNumber: 
+                    type: number
+                  sku: 
+                    type: string
+                  description?:
+                    type: string
+                  price?:
+                    type: number
+                  countQty?:
+                    type: number
+                  countDate?:
+                    type: string
+                  countedFlag?:
+                    type: boolean
+                  employeeNum?:
+                    type: string
+  basketPubReq: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            basketId: 
+              type: string
+            basketType: 
+              type: string
+            basketStatus: 
+              type: string
+            employeeNum?: 
+              type: string
+            basketTimestamp:
+              type: number
+            customer:
+              type: string
+            orderSubtotal?:
+              type: number
+            orderTax?:
+              type: number
+            orderTotal?:
+              type: number
+            originatingInfo1?:
+              type: string
+            originatingInfo2?:
+              type: string
+            originatingInfo3?:
+              type: string
+            basketInfo?:
+              type: array
+              items:
+                properties: 
+                  rowId: 
+                    type: string
+                  rowValue: 
+                    type: string
+                  printOnReceipt?:
+                    type: boolean
+                  printOrder?:
+                    type: number
+                  printLocation?:
+                    type: string
+            basketNotifications?:
+              type: array
+              items:
+                properties: 
+                  notificationId: 
+                    type: number
+                  customerNotified?: 
+                    type: boolean
+                  notificationAddress?:
+                    type: string
+                  notificationType?:
+                    type: string
+            basketItems:
+              type: array
+              items:
+                properties: 
+                  lineRef: 
+                    type: number
+                  sku: 
+                    type: string
+                  description?:
+                    type: string
+                  department?:
+                    type: string   
+                  qtyPerRetail?:
+                    type: number
+                  retailPrice?:
+                    type: number
+                  qtyPurchased:
+                    type: number
+                  baseketInfo?:
+                    type: array
+                    items:
+                      properties:
+                        rowId:
+                          type: string
+                        rowValue:
+                          type: string
+                        printOnReceipt:
+                          type: boolean
+                        printOrder:
+                          type: integer
+                        printLocation:
+                          type: string
+                  basketItemCancelled?:
+                    type: array
+                    items:
+                      properties:
+                        sequenceNumber:
+                          type: number
+                        qtyCancelled?:
+                          type: number
+                        fractionalQtyCancelled?:
+                           type: number
+                        itemCancelReason?:
+                          type: string
+                        notificationId?:
+                          type: number
+                        lineCreatedBy?:
+                          type: string
+                  basketItemFulfilled?:
+                    type: array
+                    items:
+                      properties:
+                        fulfillCompany:
+                         type: integer
+                        fulfillLocation:
+                           type: string
+                        fulfillOrderNumber:
+                          type: number
+                        fulfillLineRef:
+                          type: number
+                        qtyFulfilled?:
+                          type: integer
+                        fractionalQtyFulfilled?:
+                          type: number
+                  basketItemPicked?:
+                    type: array
+                    items:
+                      properties:
+                        sequenceNumber:
+                          type: number
+                        qtyPicked?:
+                            type: integer
+                        fractionalQtyPicked?:
+                          type: number
+                        itemCancelReason:
+                        type: string
+                        notificationId?:
+                          type: number
+                        lineCreatedBy?:
+                          type: string
+                  basketShip?:
+                    type: array
+                    items:
+                      properties:
+                        taxZipCode?:
+                          type: string
+                        recipientCustomerNumber?:
+                          type: string
+                        recipientName:
+                          type: string
+                        addressLine1:
+                          type: string
+                        addressLine2?:
+                          type: string
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        zipCode:
+                          type: string
+                        contactName?:
+                          type: string
+                        contactPhone?:
+                          type: string
+                        taxCityName?:
+                          type: string
+                  basketTax?:
+                    type: array
+                    items:
+                      properties:
+                        taxJurCode:
+                          type: string
+                        taxAuthCode:
+                          type: string
+                        taxClass:
+                          type: string
+                        taxRate?:
+                          type: number
+                        taxableSubtotal?:
+                          type: number
+                        taxJurDescr?:
+                          type: string
+                        taxAuthDescr?:
+                          type: string
+                        roundingOption?:
+                          type: integer
+                        breakpointUsed?:
+                          type: boolean
+                        taxBreakpoint?:
+                          type: number
+                        taxRateUnderBreak?:
+                          type: number
+                        taxRateOverBreak?:
+                          type: number
+                        taxEntireAmount?:
+                          type: boolean
+
+  spacialOrderRequestBody: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            customerAccountNumber: 
+              type: string
+            customer?: 
+              type: string
+            accountOpen?: 
+              type: boolean
+            lastPaymentDate?: 
+              type: string
+            totalSales:
+              type: number
+            taxableSales:
+              type: number
+            accountBalanceDue:
+              type: number
+            specialOrderItems:
+              type: array
+              items:
+                properties: 
+                  lineRef: 
+                    type: number
+                  qtyPurchased?: 
+                    type: integer
+                  qtyPerRetail?:
+                    type: integer
+                  retail?:
+                    type: number
+                  discountedRetail?:
+                    type: number
+                  skuPricingMethod?:
+                    type: integer
+                  isOverrideTaxExempt?:
+                    type: boolean
+                  retailExt?:
+                    type: number
+                  regRetailExt?:
+                    type: number
+                  taxable?:
+                    type: boolean
+                  skuPickup?:
+                    type: boolean
+                  skuPickupDate?:
+                    type: integer
+                  sku?: 
+                    type: string
+                  serialNumber?:
+                    type: string
+                  retailChgReason?:
+                    type: string
+                  department?:
+                    type: string
+                  priceBook?:
+                    type: string
+                  promoCode?:
+                    type: string
+                  received:
+                    type: boolean
+                  receivedSerialNumber:
+                    type: string
+                  receivedDate: 
+                    type: string
+                  taxClass?:
+                    type: string
+                  cancelled?:
+                    type: boolean
+                  cancelledDate?:
+                    type: string
+                  fractionalQtyPurchased?:
+                    type: number
+  customerPubReq:
+    type: array
+    items:
+      properties:
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+        customer:
+          type: string
+        firstName?:
+          type: string
+        lastName?:
+          type: string
+        zip?: 
+          type: integer
+        postalCode?: 
+          type: string 
+        address1?: 
+          type: string
+        address2?: 
+          type: string
+        address3?: 
+          type: string
+        poBox?:
+           type: string
+        city?:
+           type: string
+        state?:
+           type: string
+        country?:
+           type: string
+        customerType?:
+           type: string
+        customerStatus?:
+           type: string
+        priceBook?:
+           type: string
+        companyName?:
+           type: string
+        emailAddress?:
+           type: string
+        phone?:
+           type: string
+        businessPhone?:
+           type: string
+  layawayRequestBody: 
+    type: object
+    properties:
+      data: 
+        type: array
+        items:
+          type: [inventoryRequestCommonBody.inventoryRequestCommonBody]
+          properties:
+            customerAccountNumber: 
+              type: number
+            customer?: 
+              type: string
+            accountOpen?: 
+              type: boolean
+            lastPaymentDate?: 
+              type: string
+            totalSales:
+              type: number
+            taxableSales:
+              type: number
+            accountBalanceDue:
+              type: number
+            layawayItems:
+              type: array
+              items:
+                properties: 
+                  lineRef: 
+                    type: number
+                  qtyPurchased?: 
+                    type: integer
+                  qtyPerRetail?:
+                    type: integer
+                  retail?:
+                    type: number
+                  discountedRetail?:
+                    type: number
+                  skuPricingMethod?:
+                    type: integer
+                  isOverrideTaxExempt?:
+                    type: boolean
+                  retailExt?:
+                    type: number
+                  regRetailExt?:
+                    type: number
+                  taxable?:
+                    type: boolean
+                  skuPickup?:
+                    type: boolean
+                  skuPickupDate?:
+                    type: integer
+                  sku?: 
+                    type: string
+                  serialNumber?:
+                    type: string
+                  retailChgReason?:
+                    type: string
+                  department?:
+                    type: string
+                  priceBook?:
+                    type: string
+                  promoCode?:
+                    type: string
+                  taxClass?:
+                    type: string
+                  cancelled?:
+                    type: boolean
+                  cancelledDate?:
+                    type: string
+                  fractionalQtyPurchased?:
+                    type: number
+            layawayTransReference:
+              type: array
+              items:
+                properties: 
+                   orderNumber: 
+                     type: number
+                  

@@ -1,0 +1,89 @@
+#%RAML 1.0
+title: Inventory Receive
+version: v1
+description: POS EAPI
+protocols: [HTTPS,HTTP]
+baseUri: https://{baseURL}/pos-eapi/v1
+baseUriParameters:
+  baseURL:
+    description: Use the below baseURL's for each specific env.
+    enum:
+      - api-dev.ccmllc.com/ccmllc
+      - api-qa.ccmllc.com/ccmllc
+      - api-uat.ccmllc.com/ccmllc
+      - api.ccmllc.com/ccmllc
+
+uses:
+  InventoryRequest: /libraries/inventory-request.raml
+  InventoryErrorResponse: /libraries/inventory-error-response-library.raml
+
+traits:
+  commonerror: !include traits/error.raml
+  
+
+resourceTypes:
+  CommonResponse: !include resourceType/common-response.raml
+  ResponseCollection: !include resourceType/response-collection.raml
+
+/inventoryCountReq:
+  description: Request layout for publishing inventory counts.
+  post:
+    body:
+      application/json:
+        type: InventoryRequest.inventoryCountRequestBody
+        example: !include examples/inventory-count-request-example.json
+  type: { ResponseCollection : 
+            {errors-schema: InventoryErrorResponse.inventoryCountDataError,
+            errors-example: !include /examples/inventory-count-response-example.json,
+            response-schema: !include /datatypes/response.raml,
+            response-example: !include /examples/response-example.json
+            }
+  } 
+
+/inventoryReceiveReq:
+  description: Request layout for publishing inventory receivers.
+  post:
+    body:
+      application/json:
+        example: !include examples/inventory-receive-request-example.json
+        type: InventoryRequest.inventoryReceiveRequestBody
+  type: { ResponseCollection : 
+            {errors-schema: InventoryErrorResponse.inventoryRecieveDataError,
+            errors-example: !include /examples/inventory-receive-response-example.json,
+            response-schema: !include /datatypes/response.raml,
+            response-example: !include /examples/response-example.json
+            }
+  } 
+/inventoryTransferInReq:
+  description:
+  post:
+    body:
+      application/json:
+        example: !include examples/inventory-TransferIn-request-example.json
+        type: InventoryRequest.inventoryTransferInRequestBody
+  type: { ResponseCollection : 
+            {errors-schema: InventoryErrorResponse.inventoryTransferInDataError,
+            errors-example: !include /examples/inventory-TransferIn-response-example.json,
+            response-schema: !include /datatypes/response.raml,
+            response-example: !include /examples/response-example.json
+            }
+  } 
+/inventoryTransferOut:
+  post:
+    body:
+      application/json:
+        example: !include examples/inventory-Transferout-request-example.json
+        type: InventoryRequest.inventoryTransferOutRequestBody
+  type: { ResponseCollection : 
+            {errors-schema: InventoryErrorResponse.inventoryTransferOutDataError,
+            errors-example: !include /examples/inventory-Transferout-response-example.json,
+            response-schema: !include /datatypes/response.raml,
+            response-example: !include /examples/response-example.json
+            }
+  } 
+  
+
+
+
+
+  

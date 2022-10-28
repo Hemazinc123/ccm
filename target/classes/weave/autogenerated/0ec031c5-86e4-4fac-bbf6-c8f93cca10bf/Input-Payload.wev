@@ -1,0 +1,16 @@
+%dw 2.0
+
+type auto_0ec031c5_86e4_4fac_bbf6_c8f93cca10bf_Input_Payload = {
+  data: Array<{    createdAtStore?: Boolean,     notes?: String,     insured?: Boolean,     shippingMethod?: String,     blindReceiving?: Boolean,     inventoryTransferInItems: Array<{      lineCreatedBy?: String,       price?: Number,       description?: String,       qtyShipped: Number,       mfgCode?: String,       lineNumber: Number,       sku: String,       qtyReceived?: Number,       _?: Any    }>, 
+    transferId: String, 
+    creationDate?: String, 
+    shipDate?: String, 
+    createdBy?: String, 
+    location: String, 
+    sendingLocation: String, 
+    status: String, 
+    _?: Any
+  }>, 
+  _?: Any
+}
+

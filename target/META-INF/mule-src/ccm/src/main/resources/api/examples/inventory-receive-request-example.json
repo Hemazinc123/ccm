@@ -1,0 +1,42 @@
+{
+"data": [
+{
+"location": "0043",
+"receiveId": "0043-10734-16200",
+"receiveStatus": "Open",
+"blindReceiving": false,
+"allowReopen": true,
+"orderDate": "2021-12-15",
+"receiveType": "PO",
+"receiveSource": "Warehouse",
+"createdAtStore": false,
+"expectedDate": "2021-12-20",
+"receiverItems": [
+{
+"lineNumber": 1,
+"sku": "111",
+"price": 20.00,
+"vendorItem": "",
+"description": "Polo Sweater",
+"qtyOrdered": 10,
+"qtyShipped": 10,
+"casePackId": "SweatPolo1",
+"casePackQty": 1,
+"casePackDescription": "Polo Sweaters"
+},
+{
+"lineNumber": 2,
+"sku": "222",
+"price": 19.99,
+"vendorItem": "",
+"description": "Poplin Top",
+"qtyOrdered": 15,
+"qtyShipped": 10,
+"casePackId": "PoplinTop1",
+"casePackQty": 1,
+"casePackDescription": "Poplin Top"
+}
+]
+}
+]
+}

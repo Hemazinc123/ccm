@@ -1,0 +1,26 @@
+{
+	"success": false,
+	"errorCode": 400,
+	"errorMessage": "transfer ID cannot be null",
+	"totalProcessed": 2,
+	"errors": [
+		{
+			"recordNumber": 2354245,
+			"errorCode": 400,
+			"errorMessage": "transfer ID cannot be null",
+			"data": {
+				"location": "450",
+				"transferId": "123"
+			}
+		},
+			{
+				"recordNumber": 2354245,
+				"errorCode": 400,
+				"errorMessage": "transfer ID cannot be null",
+				"data": {
+					"location": "450",
+					"transferId": "123"
+				}
+			}
+		]
+	}

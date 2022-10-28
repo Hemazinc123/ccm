@@ -1,0 +1,292 @@
+#%RAML 1.0 ResourceType
+
+get?:
+  description: This is used to fetch <<resourcePathName|!singularize>> 
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<response-schema>>
+          example: <<response-example>>
+    400:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    401:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    403:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    404:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    406:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    408:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    415:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    500:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    501:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    503:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+post?:
+  description: This is used to post <<resourcePathName|!singularize>> 
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<response-schema>>
+          example: <<response-example>>
+    400: 
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    401:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    403:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    404:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    406:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    408:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    415:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    500:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    501:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    503:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+patch?:
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<response-schema>>
+          example: <<response-example>>
+    400: 
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    401:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    403:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    404:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    406:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    408:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    415:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    500:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    501:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    503:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+put?:
+  description: This is used to update <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<response-schema>>
+          example: <<response-example>>
+    400: 
+      body:
+        application/json:
+          type: <<error-schema>>
+          example: <<error-example>>
+    401:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    403:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    404:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    406:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    408:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    415:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    500:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    501:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    503:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+delete?:
+  description: This is used to delete <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<response-schema>>
+          example: <<response-example>>
+    400: 
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    401:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    403:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    404:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    406:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    408:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    415:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    500:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    501:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+    503:
+      body:
+        application/json:
+          type: <<errors-schema>>
+          example: <<errors-example>>
+  

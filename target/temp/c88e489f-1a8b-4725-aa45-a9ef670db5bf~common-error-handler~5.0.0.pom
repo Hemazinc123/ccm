@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>c88e489f-1a8b-4725-aa45-a9ef670db5bf</groupId>
+	<artifactId>common-error-handler</artifactId>
+	<version>5.0.0</version>
+	<packaging>mule-extension</packaging>
+	<name>error-handler-plugin</name>
+	<description>An all-in-one plugin to handle Mule specific errors.</description>
+
+	<properties>
+		<!-- XML SDK properties -->
+		<mule.version>4.2.1</mule.version>
+		<mule.extensions.maven.plugin.version>1.1.1</mule.extensions.maven.plugin.version>
+		<app.runtime>4.3.0</app.runtime>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>Exchange2</id>
+			<name>Mule Repo</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v1/organizations/${project.groupId}/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mule.runtime</groupId>
+			<artifactId>mule-module-extensions-xml-support</artifactId>
+			<version>4.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- DataWeave -->
+		<dependency>
+			<groupId>com.mulesoft.mule.runtime.modules</groupId>
+			<artifactId>mule-module-spring-config-ee</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- Build plugin for XML SDK extension -->
+				<groupId>org.mule.runtime.plugins</groupId>
+				<artifactId>mule-extensions-maven-plugin</artifactId>
+				<version>${mule.extensions.maven.plugin.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Releases Repository</name>
+			<url>http://repository.mulesoft.org/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>mulesoft-snapshots</id>
+			<name>MuleSoft Snapshots Repository</name>
+			<url>https://repository.mulesoft.org/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+</project>

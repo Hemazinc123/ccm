@@ -1,0 +1,32 @@
+{
+"data": [
+{
+"location": "0043",
+"transferId": "0043-10734-16200",
+"receivingLocation": "0012",
+"createdBy": "100",
+"shippingMethod": "FedEx",
+"notes": "",
+"creationDate": "2021-12-20",
+"status": "Open",
+"transferOutItems": [
+{
+"lineNumber": 1,
+"sku": "111",
+"description": "Polo Sweater",
+"qtyShipped": 10,
+"price": 20.00,
+"lineCreatedBy": "100"
+},
+{
+"lineNumber": 2,
+"sku": "222",
+"description": "Sweater",
+"qtyShipped": 10,
+"price": 19.99,
+"lineCreatedBy": "100"
+}
+]
+}
+]
+}

@@ -1,0 +1,27 @@
+#%RAML 1.0 Library
+usage: Creates response types
+
+resourceTypes:
+  201Response: !include ../resourceType/common-response.raml
+
+types:
+  error:
+    type: !include ../datatypes/error.raml
+    
+    description: Fields returned for  an error response
+  commonKeys:
+    type: !include ../datatypes/response.raml
+    description: common fields that are returned as part of success or error response
+  errorInventoryData:
+    type: !include ../datatypes/error-inventory-data.raml
+    
+    description: explicit fields that are  part of inventory error data object
+  
+  errorInventoryCountData:
+    type: !include ../datatypes/error-inventory-count.raml
+    description: explicit fields that are part of transfer error data object
+  
+  errorInventoryReceive:
+    type: !include ../datatypes/error-inventory-receive-data.raml
+  errorInventoryTransferOut:
+    type: !include ../datatypes/error-transfer-out.raml
