@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+
+	<flow name="sf-post-inventoryReceiveReq" doc:id="09732126-ddb0-4a55-9e74-d09c26a0ddbd" >
+		<logger level="INFO" doc:name="Logger" doc:id="b811fd47-406f-4a61-bab3-8eea0c0885c5" message="payload"/>
+		<ee:transform doc:name="inventoryReceiveReq" doc:id="5ad5b511-fc78-4213-a428-e388e2b6cb62" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::core::Arrays
+output application/json
+---
+{
+totalprocessed:(payload.data.receiverItems map sizeOf($))[0],
+sucuess: true
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="451c458a-4d91-41dc-b208-a4cdb9d25101" message="payload"/>
+		<error-handler ref="errorhandlerError_Handler_on-errorcontinue" />
+	</flow>
+	<flow name="sf-post-inventoryCountReq" doc:id="718ff619-e28c-4032-9d51-1c7eb0bf8023" >
+		<logger level="INFO" doc:name="Logger" doc:id="49550d83-3e2b-424c-a64d-2391448fff81" message="payload"/>
+		<ee:transform doc:name="inventoryCountReq" doc:id="ace83121-5385-48e2-bb47-9157f18dd55e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::core::Arrays
+output application/json
+---
+{totalprocessed:(payload.data.inventoryCountItems map sizeOf($))[0],
+sucuess: true
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<file:write doc:id="3d05f9ca-c4ea-4507-b081-2c2ff728a35d" path="D:\Pratice\Task\ccm\inventorycountReq.txt"/>
+		<error-handler ref="errorhandlerError_Handler_on-errorcontinue" />
+	</flow>
+	<flow name="sf-post-inventoryTransferInReq" doc:id="0ec031c5-86e4-4fac-bbf6-c8f93cca10bf" >
+		<logger level="INFO" doc:name="Logger" doc:id="be189a9f-1b16-4625-856d-6e84bf94ccce" />
+		<ee:transform doc:name="dw" doc:id="6ca6a955-3022-4a46-8505-88ee3a39c239">
+				<ee:message>
+					<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+
+---
+{
+totalprocesed:(payload.data.inventoryTransferInItems map sizeOf($))[0],
+success: true
+}
+]]></ee:set-payload>
+				</ee:message>
+				<ee:variables >
+				<ee:set-variable variableName="vRequest" ><![CDATA[ %dw 2.0
+output application/json
+
+---
+attributes.headers."type"
+]]></ee:set-variable>
+			</ee:variables>
+			</ee:transform>
+		<file:write doc:name="Write" doc:id="cf6a26fa-7aa9-4eb2-818d-46129f7357d5" path="#[vars.vRequest ++ &quot;-&quot; ++ (now() as String {format:'dd-MM-yy'}) ++ '.json']" config-ref="File_Config"/>
+		<error-handler ref="errorhandlerError_Handler_on-errorcontinue" />
+	</flow>
+	<flow name="sf-post-inventoryTransferOut" doc:id="b9452279-2b20-4b06-8214-c752abf4ce43" >
+		<logger level="INFO" doc:name="Logger" doc:id="892f713a-de92-4233-9f6f-60e257e4671c" message="payload"/>
+		<ee:transform doc:name="inventoryTransferOut" doc:id="40864986-5b55-4f63-8446-6e33ac9e046c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::core::Arrays
+output application/json
+---
+{
+"totalProcessed": (payload.data.transferOutItems map sizeOf($))[0],
+sucuess: true
+}]]></ee:set-payload>
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="vReq" ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="801cfbd3-922c-4a9a-a86c-15f0d1af5e34" message="payload"/>
+		<error-handler ref="errorhandlerError_Handler_on-errorcontinue" />
+	</flow>
+</mule>

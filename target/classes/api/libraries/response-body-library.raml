@@ -1,0 +1,22 @@
+#%RAML 1.0 Library
+types:
+  commonResponseBody:
+    type: object
+    properties:
+      success: boolean
+      errorCode?: integer
+      errorMessage?: string
+      totalProcessed : integer
+      errors?: 
+       type: array
+       items:
+        properties:
+          recordNumber : integer
+          errorCode: integer
+          errorMessage: string
+          data: object
+
+         
+        
+
+        

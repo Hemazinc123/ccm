@@ -1,0 +1,27 @@
+{
+	"data": [
+		{
+			"location": "abc",
+			"countId": "1375301729131",
+			"fixtureId": "Row12 Aisle A",
+			"status": "Open",
+			"initiatedAtCorporate": true,
+			"inventoryCountItems": [
+				{
+					"lineNumber": 10,
+					"sku": "111",
+					"description": "Hagar Slacks",
+					"price": 12.44
+				},
+				{
+					"lineNumber": 20,
+					"sku": "222",
+					"description": "Hagar Slacks",
+					"price": 12.44,
+					"countQty": 6,
+					"countedFlag": true
+				}
+			]
+		}
+	]
+}

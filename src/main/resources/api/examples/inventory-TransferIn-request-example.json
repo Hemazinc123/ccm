@@ -1,0 +1,38 @@
+{
+"data": [
+{
+"location": "0043",
+"transferId": "0043-10734-16200",
+"status": "Open",
+"sendingLocation": "0012",
+"blindReceiving": true,
+"createdBy": "100",
+"insured": false,
+"shippingMethod": "FedEx",
+"notes": "",
+"creationDate": "2021-12-20",
+"shipDate": "2021-12-20",
+"createdAtStore": true,
+"inventoryTransferInItems": [
+{
+"lineNumber": 1,
+"sku": "111",
+"description": "Polo Sweater",
+"qtyShipped": 10,
+"price": 20.00,
+"mfgCode": "Polo",
+"lineCreatedBy": "100"
+},
+{
+"lineNumber": 2,
+"sku": "222",
+"description": "Sweater",
+"qtyShipped": 10,
+"price": 19.99,
+"mfgCode": "Burlington",
+"lineCreatedBy": "100"
+}
+]
+}
+]
+}

@@ -1,0 +1,16 @@
+#%RAML 1.0 ResourceType
+
+uses:
+  commonResponse: ../libraries/response-body-library.raml
+
+post:
+ responses:
+  201:
+    body:
+      application/json:
+        example: !include ../examples/response-example.json
+        type: commonResponse.commonResponseBody
+        
+          
+        
+      

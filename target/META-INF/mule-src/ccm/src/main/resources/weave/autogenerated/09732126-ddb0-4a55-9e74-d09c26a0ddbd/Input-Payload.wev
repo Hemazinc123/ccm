@@ -1,0 +1,9 @@
+%dw 2.0
+
+type auto_09732126_ddb0_4a55_9e74_d09c26a0ddbd_Input_Payload = {
+  data: Array<{    createdAtStore?: Boolean,     blindReceiving?: Boolean,     location: String,     receiveStatus?: String,     expectedDate?: String,     allowReopen?: Boolean,     orderDate?: String,     receiveType: String,     receiveSource?: String,     receiveId: String,     receiverItems: Array<{      price?: Number,       vendorItem?: String,       qtyOrdered: Number,       casePackDescription?: String,       description?: String,       qtyShipped: Number,       casePackQty?: Number,       lineNumber: Number,       sku: String,       casePackId?: String,       _?: Any    }>, 
+    _?: Any
+  }>, 
+  _?: Any
+}
+

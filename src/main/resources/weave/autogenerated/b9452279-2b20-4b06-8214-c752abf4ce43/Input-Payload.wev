@@ -1,0 +1,13 @@
+%dw 2.0
+
+type auto_b9452279_2b20_4b06_8214_c752abf4ce43_Input_Payload = {
+  data: Array<{    createdAtStore?: Boolean,     notes?: String,     createdBy?: String,     shippingMethod?: String,     blindReceiving?: Boolean,     location: String,     transferOutItems: Array<{      lineCreatedBy?: String,       price?: Number,       description?: String,       qtyShipped: Number,       lineNumber: Number,       sku: String,       qtyReceived?: Number,       _?: Any    }>, 
+    transferId: String, 
+    creationDate?: String, 
+    receivingLocation: String, 
+    status: String, 
+    _?: Any
+  }>, 
+  _?: Any
+}
+

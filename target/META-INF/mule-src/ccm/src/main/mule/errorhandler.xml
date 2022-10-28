@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:error-handler-plugin="http://www.mulesoft.org/schema/mule/error-handler-plugin"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/error-handler-plugin http://www.mulesoft.org/schema/mule/error-handler-plugin/current/mule-error-handler-plugin.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	
+	<error-handler name="errorhandlerError_Handler_on-errorcontinue" doc:id="0c45e24f-9509-4aee-88f9-03006d815b94" >
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="577074af-500b-4216-96fa-4768c17137e4" >
+			<error-handler-plugin:on-error doc:name="Process Error" doc:id="c8b057c0-4459-405a-abc6-ca4bea387315" config-ref="Error_Handler_Plugin_Config"/>
+			<logger level="INFO" doc:name="Logger" doc:id="fc7dc31e-cf70-4400-9d1b-fe0526edff46" message="payload"/>
+			<ee:transform doc:name="Transform Message" doc:id="1a18a1e2-ac32-4811-9818-657660a42941" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-continue>
+	</error-handler>
+</mule>

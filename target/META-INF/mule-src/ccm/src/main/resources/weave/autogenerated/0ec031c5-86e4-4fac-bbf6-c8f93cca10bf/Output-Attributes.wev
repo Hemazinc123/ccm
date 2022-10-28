@@ -1,0 +1,23 @@
+%dw 2.0
+
+type auto_0ec031c5_86e4_4fac_bbf6_c8f93cca10bf_Output_Attributes = {|
+  clientCertificate?: {|
+    publicKey?: {|  |}, 
+    "type"?: String, 
+    encoded?: Binary
+  |}, 
+  headers: {|  |}, 
+  listenerPath: String, 
+  method: String, 
+  queryParams: {|  |}, 
+  queryString: String, 
+  relativePath: String, 
+  remoteAddress: String, 
+  requestPath: String, 
+  requestUri: String, 
+  scheme: String, 
+  uriParams: {| baseURL: "api-uat.ccmllc.com/ccmllc" | "api-qa.ccmllc.com/ccmllc" | "api-dev.ccmllc.com/ccmllc" | "api.ccmllc.com/ccmllc" |}, 
+  version: String, 
+  localAddress: String
+|}
+

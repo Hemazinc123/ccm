@@ -1,0 +1,23 @@
+%dw 2.0
+
+type auto_718ff619_e28c_4032_9d51_1c7eb0bf8023_Input_Attributes = {|
+  clientCertificate?: {|
+    publicKey?: {|  |}, 
+    "type"?: String, 
+    encoded?: Binary
+  |}, 
+  headers: {|  |}, 
+  listenerPath: String, 
+  method: String, 
+  queryParams: {|  |}, 
+  queryString: String, 
+  relativePath: String, 
+  remoteAddress: String, 
+  requestPath: String, 
+  requestUri: String, 
+  scheme: String, 
+  uriParams: {| baseURL: "api-uat.ccmllc.com/ccmllc" | "api-qa.ccmllc.com/ccmllc" | "api-dev.ccmllc.com/ccmllc" | "api.ccmllc.com/ccmllc" |}, 
+  version: String, 
+  localAddress: String
+|}
+
